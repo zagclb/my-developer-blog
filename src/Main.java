@@ -39,12 +39,51 @@ public class Main {
             System.out.print("请输入你的选择：");
 
             int choice = sc.nextInt();
+            sc.nextLine();
             switch (choice){
                 case 1:
                     for (Article article:articles){
                         article.printInfo();
                     }
                     break;
+                case 2:
+                    System.out.println("请输入标题：");
+                    String title = sc.nextLine();
+
+                    System.out.println("请输入作者：");
+                    String author = sc.nextLine();
+
+                    System.out.println("请输入内容：");
+                    String content = sc.nextLine();
+
+                    Article article = new Article(title,author,content);
+
+                    articles.add(article);
+
+                    System.out.println("文章添加成功!");
+                    break;
+
+                case 3:
+                    System.out.println("===== 删除文章 =====");
+                    for (int i = 0; i < articles.size(); i++) {
+                        System.out.println("文章编号："+(i+1));
+                        Article article4 = articles.get(i);
+                        article4.printInfo();
+                    }
+
+                    System.out.print("请输入要删除的文章编号：");
+                    int number = sc.nextInt();
+                    sc.nextLine();
+
+                    if (number >= 1 && number <= articles.size()) {
+                        articles.remove(number - 1);
+                        System.out.println("删除成功");
+                    } else {
+                        System.out.println("文章编号不存在！");
+                    }
+                    break;
+
+
                 case 0:
                     System.out.println("退出程序");
                     return;

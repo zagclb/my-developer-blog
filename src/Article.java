@@ -13,6 +13,6 @@ public class Article {
         System.out.println("标题："+title);
         System.out.println("作者："+author);
         System.out.println("内容："+content);
-
+        System.out.println("--------------");
     }
 }
