@@ -42,45 +42,15 @@ public class Main {
             sc.nextLine();
             switch (choice){
                 case 1:
-                    for (Article article:articles){
-                        article.printInfo();
-                    }
+                    showArticles(articles);
                     break;
                 case 2:
-                    System.out.println("请输入标题：");
-                    String title = sc.nextLine();
-
-                    System.out.println("请输入作者：");
-                    String author = sc.nextLine();
-
-                    System.out.println("请输入内容：");
-                    String content = sc.nextLine();
-
-                    Article article = new Article(title,author,content);
-
-                    articles.add(article);
-
-                    System.out.println("文章添加成功!");
+                    addArticle(articles,sc);
                     break;
 
+
                 case 3:
-                    System.out.println("===== 删除文章 =====");
-                    for (int i = 0; i < articles.size(); i++) {
-                        System.out.println("文章编号："+(i+1));
-                        Article article4 = articles.get(i);
-                        article4.printInfo();
-                    }
-
-                    System.out.print("请输入要删除的文章编号：");
-                    int number = sc.nextInt();
-                    sc.nextLine();
-
-                    if (number >= 1 && number <= articles.size()) {
-                        articles.remove(number - 1);
-                        System.out.println("删除成功");
-                    } else {
-                        System.out.println("文章编号不存在！");
-                    }
+                    deleteArticle(articles,sc);
                     break;
 
 
@@ -91,5 +61,50 @@ public class Main {
                     System.out.println("请重新输入");
             }
         }
+    }
+
+    static void showArticles(ArrayList<Article>articles){
+        for (Article article:articles){
+            article.printInfo();
+        }
+    }
+
+    static void addArticle(ArrayList<Article> articles, Scanner sc) {
+        System.out.println("请输入标题：");
+        String title = sc.nextLine();
+
+        System.out.println("请输入作者：");
+        String author = sc.nextLine();
+
+        System.out.println("请输入内容：");
+        String content = sc.nextLine();
+
+        Article article = new Article(title,author,content);
+
+        articles.add(article);
+
+        System.out.println("文章添加成功!");
+
+    }
+
+    static void deleteArticle(ArrayList<Article> articles, Scanner sc){
+        System.out.println("===== 删除文章 =====");
+        for (int i = 0; i < articles.size(); i++) {
+            System.out.println("文章编号："+(i+1));
+            Article article = articles.get(i);
+            article.printInfo();
+        }
+
+        System.out.print("请输入要删除的文章编号：");
+        int number = sc.nextInt();
+        sc.nextLine();
+
+        if (number >= 1 && number <= articles.size()) {
+            articles.remove(number - 1);
+            System.out.println("删除成功");
+        } else {
+            System.out.println("文章编号不存在！");
+        }
+
     }
 }
