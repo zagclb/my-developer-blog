@@ -51,4 +51,10 @@
 ## Day 7 - 2026.11.4
 - MySQL 中使用 SQL 管理文章。
 - 学会了Mysql增删改查
+
+## Day 8 - 2026.11.7
+- 学习了JDBC，配置了Mysql JDBC驱动
+-连接了java和mysql数据库
+- 使用 ResultSet 和 while(rs.next()) 读取文章数据。
+- 成功在java中输出了mysql数据库中的内容
   
